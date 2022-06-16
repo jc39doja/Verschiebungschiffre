@@ -8,37 +8,48 @@ package Cryptonize;
  */
 public class encrypt {
 
-    /* here is where the encryption happens and where I lost my hope in my english skills*/
 
-    private int key = 3;
+    public static String alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-    private String inputString;
-
+    /**
+     * The constructor of the class encrypt to initialize the encryption.
+     * @param key the key for the encryption, passed by the @see main
+     * @param inputString the string which should be encrypted
+     */
     public encrypt(int key, String inputString) {
-        this.key = key;
-        this.inputString = inputString;
         startEncryption(key, inputString);
     }
 
+    /**
+     * A method to start the encryption and pass each character to the @see shift method
+     * @param key the key for the encryption
+     * @param inputString the string to be encrypted
+     */
     public void startEncryption(int key, String inputString) {
-        /* for i in string mache i = (i + key) mod 26*/
-        String chiffre = "";
+
+        StringBuilder cypher = new StringBuilder();
         for (int i = 0; i < inputString.length(); i++) {
 
             char a = inputString.charAt(i);
-            //System.out.println(a + " at " + (a+ key) % 26);
-            char b = inputString.charAt((i + key) % 26);
-            chiffre = chiffre + b;
 
-            //hier müsste das alphabet noch mit ins spiel damit man das ordentlich verschiebene kann.
-            /*System.out.println(a + " at " + i);
-            i = (i + key) % 26; // muss in den output string, sonst loooopts ewig
-            System.out.println("und danach " + a + " at " + i);*/
+            cypher.append(shift(a, key));
         }
-        System.out.println(chiffre);
+        System.out.println(cypher);
     }
-/*
+
+    /**
+     * A method to shift each character from the inputString by the given key
+     * @param a the character to shift
+     * @param key the key by which the character get shifted
+     * @return the shifted character
+     */
     public static char shift(char a, int key) {
 
-    }*/
+        if (!Character.isLetter(a)) {
+            return a;
+        } else {
+            int b = (alphabet.indexOf(a) + key) % 26;
+            return alphabet.charAt(b);
+        }
+    }
 }

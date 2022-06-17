@@ -29,9 +29,7 @@ public class encrypt {
 
         StringBuilder cypher = new StringBuilder();
         for (int i = 0; i < inputString.length(); i++) {
-
             char a = inputString.charAt(i);
-
             cypher.append(shift(a, key));
         }
         System.out.println(cypher);
@@ -47,7 +45,6 @@ public class encrypt {
      * @return the shifted character
      */
     public static char shift(char a, int key) {
-
         if (!Character.isLetter(a)) {
             return a;
         } else {
@@ -55,12 +52,17 @@ public class encrypt {
             return alphabet.charAt(b);
         }
     }
+
+    /**
+     * A method to show the encryption table
+     * @param key the key to shift the encryption table
+     */
     private void showEncTable(int key) {
         System.out.println("Here you see the used encryption table. \n");
         StringBuilder cypherTable = new StringBuilder();
-        for (int i = 0; i < alphabet.length() -1; i++) {
-
-            cypherTable.append(alphabet.charAt(i + key)); //index out of range error (oder eben einfach das letzte abschneiden mit -1, hier noch mal überprüfen wie lang er durchs alphabet geht
+        for (int i = 0; i < alphabet.length(); i++) {
+            char z = alphabet.charAt(i);
+            cypherTable.append(shift(z, key));
         }
         System.out.println(alphabet + "\n" + cypherTable);
     }

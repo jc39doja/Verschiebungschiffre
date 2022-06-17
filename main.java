@@ -9,6 +9,6 @@ public class main {
 
     public static void main (String[] args) {
         System.out.println("Hello there");
-        /*hello now*/
+        new encrypt(1, "abc def 123 %&aasd abhg");
     }
 }

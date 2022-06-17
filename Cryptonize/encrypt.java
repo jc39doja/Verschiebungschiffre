@@ -35,7 +35,10 @@ public class encrypt {
             cypher.append(shift(a, key));
         }
         System.out.println(cypher);
+        showEncTable(key);
     }
+
+
 
     /**
      * A method to shift each character from the inputString by the given key
@@ -51,5 +54,14 @@ public class encrypt {
             int b = (alphabet.indexOf(a) + key) % 26;
             return alphabet.charAt(b);
         }
+    }
+    private void showEncTable(int key) {
+        System.out.println("Here you see the used encryption table. \n");
+        StringBuilder cypherTable = new StringBuilder();
+        for (int i = 0; i < alphabet.length() -1; i++) {
+
+            cypherTable.append(alphabet.charAt(i + key)); //index out of range error (oder eben einfach das letzte abschneiden mit -1, hier noch mal überprüfen wie lang er durchs alphabet geht
+        }
+        System.out.println(alphabet + "\n" + cypherTable);
     }
 }

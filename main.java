@@ -9,8 +9,8 @@ public class main {
 
     public static void main (String[] args) {
         System.out.println("Hello there");
-        new encrypt(1, "hier steht 1 lesbarer text");
+        new encrypt(14, "hier steht 1 lesbarer text");
 
-        new decrypt(1, "ijfs tufiu 1 mftcbsfs ufyu");
+        new decrypt(14, "vwsf ghsvh 1 zsgpofsf hslh");
     }
 }

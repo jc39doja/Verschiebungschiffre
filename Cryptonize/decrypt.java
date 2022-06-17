@@ -26,7 +26,7 @@ public class decrypt {
         System.out.println(plain);
         //showDecTable(key);
     }
-
+     //hier fehlt noch ein work around, wenn es über die range hinaus geht, vtl auch noch mal eine andere shift methode
     public static char shiftBack(char a, int key) {
         if (!Character.isLetter(a)) {
             return a;

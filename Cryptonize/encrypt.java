@@ -54,7 +54,7 @@ public class encrypt {
     }
 
     /**
-     * A method to show the encryption table
+     * A method to show the encryption table.
      * @param key the key to shift the encryption table
      */
     private void showEncTable(int key) {

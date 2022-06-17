@@ -9,6 +9,8 @@ public class main {
 
     public static void main (String[] args) {
         System.out.println("Hello there");
-        new encrypt(1, "abc def 123 %&aasd abhg");
+        new encrypt(1, "hier steht 1 lesbarer text");
+
+        new decrypt(1, "ijfs tufiu 1 mftcbsfs ufyu");
     }
 }

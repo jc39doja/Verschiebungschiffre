@@ -48,7 +48,7 @@ public class encrypt {
         if (!Character.isLetter(a)) {
             return a;
         } else {
-            int b = (alphabet.indexOf(a) + key) % 26;
+            int b = Math.floorMod((alphabet.indexOf(a) + key),26);
             return alphabet.charAt(b);
         }
     }

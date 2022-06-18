@@ -13,10 +13,20 @@ public class decrypt {
 
     public static String alphabet = "abcdefghijklmnopqrstuvwxyz";
 
+    /**
+     * The constructor for the decryption class
+     * @param key the key to decrypt
+     * @param cypherString the encrypted string to decode
+     */
     public decrypt(int key, String cypherString) {
         startDecryption(key, cypherString);
     }
 
+    /**
+     * A method to start the decryption by shifting each character by its alphabetic value difference to the origin
+     * @param key the decryption key
+     * @param cypherString the encrypted strind to decode
+     */
     public void startDecryption(int key, String cypherString) {
         StringBuilder plain = new StringBuilder();
         for (int i = 0; i < cypherString.length(); i++) {
@@ -27,6 +37,12 @@ public class decrypt {
         //showDecTable(key);
     }
 
+    /**
+     * A method to shift each character from the cypher to its original position in the alphabet
+     * @param a the character to shift
+     * @param key the value to shift the character at its original position
+     * @return the shifted character
+     */
     public static char shiftBack(char a, int key) {
         if (!Character.isLetter(a)) {
             return a;

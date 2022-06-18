@@ -6,7 +6,7 @@ package Cryptonize;
  * @author grueni95
  * @author jc39doja
  */
-public class encrypt {
+public class Encrypt {
 
 
     public static String alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -16,7 +16,7 @@ public class encrypt {
      * @param key the key for the encryption, passed by the @see main
      * @param inputString the string which should be encrypted
      */
-    public encrypt(int key, String inputString) {
+    public Encrypt(int key, String inputString) {
         startEncryption(key, inputString);
     }
 

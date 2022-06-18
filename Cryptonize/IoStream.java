@@ -3,6 +3,7 @@ package Cryptonize;
 
 import java.io.*;
 import java.lang.Object.*;
+import java.util.Locale;
 
 /**
  * A class to manage the input and output streams
@@ -13,16 +14,12 @@ public class IoStream {
 
     private String ipath;
     private String opath;
-    private char schars;
+    private String schars;
     private int character;
-    private char[] text;
 
     public IoStream(){
         this.ipath = ipath;
         this.opath = opath;
-        this.schars = schars;
-        this.character = character;
-        this.text = text;
     }
 
     public void readFile() throws IOException {
@@ -32,22 +29,16 @@ public class IoStream {
         BufferedReader ipath = (new BufferedReader(new FileReader(file1)));
         PrintWriter opath = (new PrintWriter(new FileWriter(file2)));
         StringBuilder text = new StringBuilder();
-        //char[] text = {};
         String line = ipath.readLine();
-        //ipath.readLine(text);
         while(line != null){
             text.append(line);
             text.append("\n");
             line = ipath.readLine();
-        } text.append("hola");
-
-        /*for(int i = 0; i < text.length; i++) {
-            text[i] = Character.toLowerCase(text[i]);
-            System.out.print(text[i]);
-        }*/
+        }
         String string = text.toString();
-        replaceSpecialCharacters(string);//modify replaceSpecialCharacters
-        text = new StringBuilder(string);
+        replaceSpecialCharacters(schars);//modify replaceSpecialCharacters
+        text = new StringBuilder(string.toLowerCase());
+
         while(text.length()>0){
             if(text.indexOf("\n") >= 0){
                 opath.println(text.substring(0,text.indexOf("\n")));
@@ -57,9 +48,9 @@ public class IoStream {
                 opath.println(text);
                 text.delete(0,text.length());
             }
+
         }
 
-        //opath.write(text);
         ipath.close();
         opath.close();
 
@@ -68,12 +59,12 @@ public class IoStream {
 
 
 
-    public void replaceSpecialCharacters(String schars){ //replace this method with switchcase or for on a stringbuilder
+    public void replaceSpecialCharacters(String schars) throws IOException{
 
-        schars.replace("ä", "ae");
-        schars.replace("ö", "oe");
-        schars.replace("ü", "ue");
-        schars.replace("ß", "ss");
+        schars = schars.replace("ä", "ae").replace("ö", "oe")
+                .replace("ü", "ue").replace("ß", "ss");
+
+    }
 
     }
 
@@ -81,4 +72,6 @@ public class IoStream {
 
 
 
-}
+
+
+

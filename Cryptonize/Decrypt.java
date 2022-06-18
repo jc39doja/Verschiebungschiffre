@@ -17,6 +17,7 @@ import java.util.Map.Entry;
 public class Decrypt {
 
     public static String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    public static String frequencies = "enisratdhulcgmobwfkzpvjyxq";
 
     /**
      * The constructor for the decryption class

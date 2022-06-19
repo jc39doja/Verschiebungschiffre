@@ -1,7 +1,5 @@
 package Cryptonize;
 
-import Cryptonize.*;
-
 import java.io.IOException;
 
 /**
@@ -14,7 +12,7 @@ public class Main {
         System.out.println("Hello there");
         /*hello now*/
         IoStream ioStream = new IoStream();
-        ioStream.readFile();
+        ioStream.modifyFile();
 
 
 

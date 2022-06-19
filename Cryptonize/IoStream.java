@@ -1,27 +1,28 @@
 package Cryptonize;
-
-
 import java.io.*;
-import java.lang.Object.*;
-import java.util.Locale;
 
 /**
- * A class to manage the input and output streams
- *
+ * Class that manages the input and output streams.
  * @author jc39doja
  */
 public class IoStream {
 
     private String ipath;
     private String opath;
-    private int character;
 
+    /**
+     * Constructor for the IoStream class.
+     */
     public IoStream(){
         this.ipath = ipath;
         this.opath = opath;
     }
 
-    public void readFile(){
+    /**
+     * Method that reads thw original text, changes all letter to lower case letters and exchanges all
+     * special characters for letters in the alphabet. It also creates a new file and writes the new text in there.
+     */
+    public void modifyFile(){
         try {
             File file1 = new File("Daten/3/Gedicht.txt");
             File file2 = new File("Daten/3/Thcideg.txt");
@@ -38,6 +39,10 @@ public class IoStream {
             String string = text.toString();
             string = string.replace("ä", "ae").replace("ö", "oe")
                     .replace("ü", "ue").replace("ß", "ss");
+
+            Encrypt encrypt = new Encrypt(3,string);
+            encrypt.startEncryption(3,string);
+
 
             text = new StringBuilder(string.toLowerCase());
             while (text.length() > 0) {
@@ -64,16 +69,7 @@ public class IoStream {
 
     }
 
-
-
-    /*public void replaceSpecialCharacters(String schars) throws IOException{
-
-        schars = schars.replace("ä", "ae").replace("ö", "oe")
-                .replace("ü", "ue").replace("ß", "ss");
-
-    }*/
-
-    }
+}
 
 
 

@@ -94,7 +94,9 @@ public class Decrypt {
         for(Entry<Character, Integer> entry: letters.entrySet()) {
             if (entry.getValue() == max) {
                 System.out.println("Most used letter: " + entry.getKey() + " with " + max + " times.");
-                key = alphabet.indexOf(entry.getKey()) - alphabet.indexOf("e") ;
+                isKey(alphabet.indexOf(entry.getKey()), entry.getKey());
+                System.out.println("Index: " + alphabet.indexOf(entry.getKey()) + " Buchstabe: " + entry.getKey());//gibt index von und h
+                //key = alphabet.indexOf(entry.getKey()) - alphabet.indexOf("e") ;
             }
         }
 
@@ -109,10 +111,10 @@ public class Decrypt {
 
     /**
      * A method to check if the given key is the correct key
-     * @param key the key to check
+     * @param index the key to check
      * @return true if the key is correct, else false
      */
-    private boolean isKey(int key) {
+    private boolean isKey(int index, char a) { //index des häufigsten buchstaben aus dem cypher text im alphabet und der buchstabe im alphabet
 
         return false;
     }
